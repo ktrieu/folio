@@ -1,0 +1,17 @@
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Anaheim';
+}
+
+p, a {
+    font-family: 'Open Sans';
+}
+
+.banner-header {
+    background-color: white;
+}
+
+.nav-link {
+    font-size: 1.5em;
+    font-family: 'Anaheim';
+    text-transform: uppercase;
+}
