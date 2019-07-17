@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for post in posts %}
+<div class="post">
+    <h2 class="border-bottom">{{ post.title }}</h2>
+    <div class="post-content">
+        {{ post.html_content | safe }}
+    </div>
+</div>
+{% empty %}
+<h1 class="text-center">
+    No posts here. Check back later!
+</h1>
+{% endfor %}
+{% endblock %}
