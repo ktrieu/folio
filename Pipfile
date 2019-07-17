@@ -8,7 +8,7 @@ pylint = "*"
 rope = "*"
 
 [packages]
-django = "==2.1"
+django = "==2.1.10"
 django-dotenv = "*"
 
 [requires]
