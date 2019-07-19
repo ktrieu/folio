@@ -10,6 +10,7 @@ rope = "*"
 [packages]
 django = "==2.1.10"
 django-dotenv = "*"
+markdown2 = "*"
 
 [requires]
 python_version = "3.7"

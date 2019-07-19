@@ -1,16 +1,25 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block custom_js %}
+<script src="{% static 'js/blog_editor.js' %}"></script>
+{% endblock %}
 
 {% block content %}
-<h1>Editing: {{ post.title }}</h1>
+<div class="row border-bottom mb-3">
+    <h1 class="col-10">Editing: {{ post.title }}</h1>
+    <div class="col-2 justify-content-end">
+        <h3 class="text-right" id="saveText">Unsaved.</h3>
+    </div>
+</div>
 <div class="row mb-5">
     <div class="col-6">
         <h3>Markdown: </h3>
-        <textarea class="form-control w-100" id="markdownArea" rows="30">
-            {{ post.markdown_content }}
-        </textarea>
+        <textarea class="form-control w-100" id="markdownArea" rows="30">{{ post.markdown_content }}</textarea>
     </div>
-    <div class="col-6" id="htmlPreview">
-        
+    <div class="col-6">
+        <h3>Preview:</h3>
+        <div id="htmlPreview"></div>
     </div>
 </div>
 {% endblock %}

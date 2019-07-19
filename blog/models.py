@@ -1,6 +1,9 @@
-from django.db import models
+import datetime
 
+from django.db import models
 from django.template.defaultfilters import slugify
+
+from markdown2 import Markdown
 # Create your models here.
 
 class Post(models.Model):
@@ -22,6 +25,9 @@ class Post(models.Model):
         if not self.id and not self.slug:
             #this is a create not a update
             self.slug = slugify(self.title)
+        #compile the markdown
+        self.html_content = Markdown().convert(self.markdown_content)
+        self.last_edit_date = datetime.datetime.now()
         super(Post, self).save()
 
     class Meta:
