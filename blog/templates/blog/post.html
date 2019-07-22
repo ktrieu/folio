@@ -1,0 +1,9 @@
+<div class="post">
+    <div class="row align-items-end border-bottom mb-3">
+        <h2 class="col-6 text-left mb-1">{{ post.title }}</h2>
+        <p class="col-6 text-right mb-1">Last edited: {{ post.last_edit_date }}</p>
+    </div>
+    <div class="post-content">
+        {{ post.html_content | safe }}
+    </div>
+</div>
