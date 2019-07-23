@@ -21,14 +21,12 @@ def edit_post(request, **kwargs):
     post = get_object_or_404(Post, id=post_id)
     return render(request, 'blog/edit.html', context={ 'post': post })
 
-@csrf_exempt
 @require_POST
 @staff_member_required
 def render_markdown(request, **kwargs):
     markdown = Markdown()
     return HttpResponse(markdown.convert(request.body))
 
-@csrf_exempt
 @require_POST
 @staff_member_required
 def save_markdown(request, **kwargs):
