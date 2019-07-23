@@ -6,10 +6,45 @@
 {% endblock %}
 
 {% block content %}
+<div class="modal" id="imageModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Images</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="imageUploadForm">
+                    <div class="form-group custom-file mb-3">
+                        <input type="file" class="custom-file-input" name="image" id="customFile" required>
+                        <label class="custom-file-label" for="customFile">Upload post image...</label>
+                    </div>
+                    <div class="form-group">
+                        <label class='w-100'>
+                            Image name:
+                            <input name="name" class="form-control" required>
+                        </label>
+                    </div>
+                    <button id="imageUploadBtn" class="btn btn-primary">Upload</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="row border-bottom mb-3">
     <h1 class="col-10">Editing: {{ post.title }}</h1>
     <div class="col-2 justify-content-end">
         <h3 class="text-right" id="saveText">Unsaved.</h3>
+    </div>
+</div>
+<div class="row mb-3">
+    <div class="mx-3 btn-group">
+        <button class="btn btn-primary btn-outline" data-toggle="modal" data-target="#imageModal">
+            Images
+        </button>
     </div>
 </div>
 <div class="row mb-5">

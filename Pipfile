@@ -11,6 +11,7 @@ rope = "*"
 django = "==2.1.10"
 django-dotenv = "*"
 markdown2 = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.7"

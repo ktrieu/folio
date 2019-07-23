@@ -23,5 +23,6 @@ urlpatterns = [
     path('', views.posts),
     path('blog/<int:id>/edit/', views.edit_post),
     path('blog/<int:id>/save_markdown/', views.save_markdown),
-    path('blog/render_markdown/', views.render_markdown)
+    path('blog/render_markdown/', views.render_markdown),
+    path('blog/<int:id>/upload_image/', views.upload_post_image)
 ]

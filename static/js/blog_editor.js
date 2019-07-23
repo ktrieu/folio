@@ -37,4 +37,21 @@ $(document).ready(() => {
     markdownArea.on('input', () => {
         dirty = true;
     });
+
+    $('#imageUploadForm').submit(function(evt) {
+        evt.preventDefault();
+        let formData = new FormData($(this).get(0));
+        $.post({
+            url: '../upload_image/',
+            data: formData,
+            processData: false,
+            contentType: false,
+            headers: {
+                'X-CSRFToken': csrfToken
+            },
+            success: (resp) => {
+                //do something here later
+            }
+        });
+    });
 })

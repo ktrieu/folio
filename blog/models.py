@@ -1,5 +1,7 @@
 import datetime
+import os
 
+from django.conf import settings
 from django.db import models
 from django.template.defaultfilters import slugify
 
@@ -32,3 +34,18 @@ class Post(models.Model):
 
     class Meta:
         ordering = ['-publish_date']
+
+def get_image_path(instance, filename):
+    media_dir = settings.MEDIA_ROOT
+    post_dir = instance.post.slug
+    path = os.path.join(media_dir, post_dir, instance.name)
+    #fix extension to match the extenions of the uploaded file
+    _, ext = os.path.splitext(filename)
+    name, _ = os.path.splitext(path)
+    return name + ext
+
+
+class PostImage(models.Model):
+    name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to=get_image_path)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
